@@ -27,7 +27,8 @@
                 "description": "Moodle Instance URL"
             },
             "type": "string"
-				},
+				}
+    },
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
