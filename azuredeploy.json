@@ -116,9 +116,10 @@
             "allowedValues": [
                 "MOODLE_39_STABLE",
                 "MOODLE_38_STABLE",
-								"MOODLE_310_STABLE"
+								"MOODLE_310_STABLE",
+								"MOODLE_311_STABLE"
             ],
-            "defaultValue": "MOODLE_310_STABLE",
+            "defaultValue": "MOODLE_311_STABLE",
             "metadata": {
                 "description": "The Moodle version you want to install."
             },
