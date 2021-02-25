@@ -28,14 +28,6 @@
             },
             "type": "string"
 				},
-				"moodleVersion": {
-					"metadata": {
-                "description": "Moodle Deploy Version formated as MOODLE_XXX_STABLE"
-            },
-            "type": "string",
-						"defaultValue": "MOODLE_39_STABLE"
-				}
-    },
     "resources": [
         {
             "type": "Microsoft.Resources/deployments",
@@ -52,8 +44,7 @@
                     "mysqlPgresVcores":             { "value": 2 },
                     "mysqlPgresStgSizeGB":          { "value": 128 },
                     "fileServerDiskSize":           { "value": 128 },
-										"azureSearchSku":								{ "value": "free"},
-										"moodleVersion":								{ "value": "[parameters('moodleVersion')]" }
+										"azureSearchSku":								{ "value": "free"}
                 },
                 "templateLink": {
                     "uri": "[concat(parameters('_artifactsLocation'), 'azuredeploy.json', parameters('_artifactsLocationSasToken'))]"
