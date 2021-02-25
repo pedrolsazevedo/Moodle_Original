@@ -21,7 +21,13 @@
                 "description": "ssh public key"
             },
             "type": "string"
-        }
+        },
+				"siteURL": {
+					"metadata": {
+                "description": "Moodle Instance URL"
+            },
+            "type": "string"
+				}
     },
     "resources": [
         {
@@ -35,7 +41,8 @@
                     "_artifactsLocationSasToken":   { "value": "[parameters('_artifactsLocationSasToken')]" },
                     "redisDeploySwitch":            { "value": false },
                     "sshPublicKey":                 { "value": "[parameters('sshPublicKey')]" },
-                    "autoscaleVmSku":               { "value": "Standard_DS1_v2" },
+                    "siteURL":											{ "value": "[parameters('siteURL')]" },
+										"autoscaleVmSku":               { "value": "Standard_DS1_v2" },
                     "enableAccelNwForOtherVmsSwitch":   { "value": false },
                     "dbServerType":                 { "value": "mysql" },
                     "fileServerDiskCount":          { "value": 2 },
