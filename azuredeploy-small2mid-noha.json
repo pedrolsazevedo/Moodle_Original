@@ -24,7 +24,7 @@
         },
 				"siteURL": {
 					"metadata": {
-                "description": "ssh public key"
+                "description": "Moodle Instance URL"
             },
             "type": "string"
 				}
@@ -41,10 +41,12 @@
                     "_artifactsLocationSasToken":   { "value": "[parameters('_artifactsLocationSasToken')]" },
                     "redisDeploySwitch":            { "value": false },
                     "sshPublicKey":                 { "value": "[parameters('sshPublicKey')]" },
-										"siteURL":											{"value": "[parameters('siteURL')]" },
+										"siteURL":											{ "value": "[parameters('siteURL')]" },
                     "mysqlPgresVcores":             { "value": 8 },
                     "mysqlPgresStgSizeGB":          { "value": 128 },
-                    "fileServerDiskSize":           { "value": 128 }
+                    "fileServerDiskSize":           { "value": 128 },
+										"azureSearchSku":								{ "value": "free"},
+										"moodleVersion":								{ "value": "MOODLE_310_STABLE"}
                 },
                 "templateLink": {
                     "uri": "[concat(parameters('_artifactsLocation'), 'azuredeploy.json', parameters('_artifactsLocationSasToken'))]"
