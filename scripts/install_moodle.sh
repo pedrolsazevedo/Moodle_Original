@@ -71,7 +71,7 @@ set -ex
 
     check_fileServerType_param $fileServerType
 		
-		export MOODLE_DATABASE_MIN_VERSION=5.6.47.0
+		export MOODLE_DATABASE_MIN_VERSION=5.6.47.0		  
 
     #Updating php sources
     sudo add-apt-repository ppa:ondrej/php -y

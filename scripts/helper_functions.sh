@@ -70,6 +70,7 @@ function get_setup_params_from_configs_json
     export fileServerDiskSize=$(echo $json | jq -r .fileServerProfile.fileServerDiskSize)
     export phpVersion=$(echo $json | jq -r .phpProfile.phpVersion)
 		export mysqlSrvversion=$(echo $json | jq -r .dbServerProfile.mysqlSrvversion)
+		export MOODLE_DATABASE_MIN_VERSION="5.6.47.0"
 }
 
 function get_php_version {
