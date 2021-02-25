@@ -30,9 +30,10 @@
 				},
 				"moodleVersion": {
 					"metadata": {
-                "description": "Moodle Deploy Version, formated as MOODLE_XXX_STABLE"
+                "description": "Moodle Deploy Version formated as MOODLE_XXX_STABLE"
             },
-            "type": "string"
+            "type": "string",
+						"defaultValue": "MOODLE_39_STABLE"
 				}
     },
     "resources": [
