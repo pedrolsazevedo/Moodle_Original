@@ -55,7 +55,8 @@ set -ex
     echo $mssqlDbServiceObjectiveName >> /tmp/vars.txt
     echo $mssqlDbEdition	>> /tmp/vars.txt
     echo $mssqlDbSize	>> /tmp/vars.txt
-    echo $installObjectFsSwitch >> /tmp/vars.txt
+    echo $mysqlSrvversion >> /tmp/vars.txt
+		echo $installObjectFsSwitch >> /tmp/vars.txt
     echo $installGdprPluginsSwitch >> /tmp/vars.txt
     echo $thumbprintSslCert >> /tmp/vars.txt
     echo $thumbprintCaCert >> /tmp/vars.txt
@@ -67,7 +68,6 @@ set -ex
     echo $storageAccountType >>/tmp/vars.txt
     echo $fileServerDiskSize >>/tmp/vars.txt
     echo $phpVersion         >> /tmp/vars.txt
-		echo $mysqlVersion         >> /tmp/vars.txt
 
     check_fileServerType_param $fileServerType
 		
@@ -757,7 +757,7 @@ EOF
         mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e "CREATE DATABASE ${moodledbname} CHARACTER SET utf8;"
         echo "mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e \"CREATE DATABASE ${moodledbname};\"" >> /tmp/debug
 				# MySQL 8.0
-				if [ $mysqlVersion = "8.0" ]; then
+				if [ $mysqlSrvversion = "8.0" ]; then
         		mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e "CREATE USER '${moodledbuser}' IDENTIFIED BY '${moodledbpass}';"
 						echo "mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e \"CREATE USER '${moodledbuser}' IDENTIFIED BY '${moodledbpass}';\"" >> /tmp/debug
 						mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e "GRANT ALL ON ${moodledbname}.* TO '${moodledbuser}';"
