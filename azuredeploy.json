@@ -956,6 +956,9 @@
                     "dbFQDN": {
                         "value": "[reference('dbTemplate').outputs.dbFQDN.value]"
                     },
+										"mysqlVersion": {
+                        "value": "[reference('dbTemplate').outputs.mysqlVersion.value]"
+                    },
                     "storageAccountName": {
                         "value": "[reference('storageAccountTemplate').outputs.storageAccountName.value]"
                     },

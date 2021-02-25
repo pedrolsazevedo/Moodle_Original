@@ -42,7 +42,7 @@
                     "redisDeploySwitch":            { "value": false },
                     "sshPublicKey":                 { "value": "[parameters('sshPublicKey')]" },
 										"siteURL":											{ "value": "[parameters('siteURL')]" },
-                    "mysqlPgresVcores":             { "value": 8 },
+                    "mysqlPgresVcores":             { "value": 2 },
                     "mysqlPgresStgSizeGB":          { "value": 128 },
                     "fileServerDiskSize":           { "value": 128 },
 										"azureSearchSku":								{ "value": "free"},

@@ -45,7 +45,7 @@ echo $nfsByoIpExportPath >> /tmp/vars.txt
 echo $htmlLocalCopySwitch >> /tmp/vars.txt
 echo $phpVersion          >> /tmp/vars.txt
 
-
+export MOODLE_DATABASE_MIN_VERSION=5.6.47.0
 
 check_fileServerType_param $fileServerType
 
