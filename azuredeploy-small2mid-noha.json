@@ -27,6 +27,12 @@
                 "description": "Moodle Instance URL"
             },
             "type": "string"
+				},
+				"moodleVersion": {
+					"metadata": {
+                "description": "Moodle Deploy Version, formated as MOODLE_XXX_STABLE"
+            },
+            "type": "string"
 				}
     },
     "resources": [
@@ -46,7 +52,7 @@
                     "mysqlPgresStgSizeGB":          { "value": 128 },
                     "fileServerDiskSize":           { "value": 128 },
 										"azureSearchSku":								{ "value": "free"},
-										"moodleVersion":								{ "value": "MOODLE_310_STABLE"}
+										"moodleVersion":								{ "value": "[parameters('moodleVersion')]"
                 },
                 "templateLink": {
                     "uri": "[concat(parameters('_artifactsLocation'), 'azuredeploy.json', parameters('_artifactsLocationSasToken'))]"
