@@ -45,7 +45,7 @@
                     "mysqlPgresVcores":             { "value": 2 },
                     "mysqlPgresStgSizeGB":          { "value": 128 },
                     "fileServerDiskSize":           { "value": 128 },
-										"azureSearchSku":								{ "value": "free"}
+										"azureSearchSku":								{ "value": "free" }
                 },
                 "templateLink": {
                     "uri": "[concat(parameters('_artifactsLocation'), 'azuredeploy.json', parameters('_artifactsLocationSasToken'))]"
