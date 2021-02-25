@@ -734,6 +734,7 @@
                     "moodleCommon": {
                         "value": "[variables('moodleCommon')]"
                     },
+
                     "lbPubIp": {
                         "value": "[reference('networkTemplate').outputs.lbPubIp.value]"
                     },
@@ -956,9 +957,6 @@
                     "dbFQDN": {
                         "value": "[reference('dbTemplate').outputs.dbFQDN.value]"
                     },
-										"mysqlVersion": {
-                        "value": "[reference('dbTemplate').outputs.mysqlVersion.value]"
-                    },
                     "storageAccountName": {
                         "value": "[reference('storageAccountTemplate').outputs.storageAccountName.value]"
                     },
@@ -1091,7 +1089,11 @@
         "loadBalancerTier": {
             "type": "string",
             "value": "[variables('moodleCommon').lbTier]"
-        }
+        },
+				"mysqlVersion": {
+						"type": "string",
+						"value": "[variables('moodleCommon').mysqlVersion]"
+				}
     },
     "variables": {
         "documentation01": "This main-template calls multiple sub-templates to create the moodle system",
