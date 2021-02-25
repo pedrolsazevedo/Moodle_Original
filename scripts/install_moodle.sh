@@ -68,6 +68,7 @@ set -ex
     echo $storageAccountType >>/tmp/vars.txt
     echo $fileServerDiskSize >>/tmp/vars.txt
     echo $phpVersion         >> /tmp/vars.txt
+		echo $mysqlVersion >> /tmp/vars.txt
 
     check_fileServerType_param $fileServerType
 		
@@ -755,17 +756,18 @@ EOF
 
     if [ $dbServerType = "mysql" ]; then
         mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e "CREATE DATABASE ${moodledbname} CHARACTER SET utf8;"
-        echo "mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e \"CREATE DATABASE ${moodledbname};\"" >> /tmp/debug
+        echo "mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e \"CREATE DATABASE ${moodledbname};\"" >> /tmp/sql_debug.log
 				# MySQL 8.0
-				if [ $mysqlSrvversion = "8.0" ]; then
+				if [ $mysqlVersion = "8.0" ]; then
         		mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e "CREATE USER '${moodledbuser}' IDENTIFIED BY '${moodledbpass}';"
-						echo "mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e \"CREATE USER '${moodledbuser}' IDENTIFIED BY '${moodledbpass}';\"" >> /tmp/debug
+						echo "mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e \"CREATE USER '${moodledbuser}' IDENTIFIED BY '${moodledbpass}';\"" >> /tmp/sql_debug.log
 						mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e "GRANT ALL ON ${moodledbname}.* TO '${moodledbuser}';"
- 		       	echo "mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e \"GRANT ALL ON ${moodledbname}.* TO ${moodledbuser};\"" >> /tmp/debug
+ 		       	echo "mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e \"GRANT ALL ON ${moodledbname}.* TO ${moodledbuser};\"" >> /tmp/sql_debug.log
+				fi
 				# MySQL 5.6 or 5.7
-				else
+				if [[ $mysqlVersion = "5.6" ||  $mysqlVersion = "5.7" ]]; then
 						mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e "GRANT ALL ON ${moodledbname}.* TO ${moodledbuser} IDENTIFIED BY '${moodledbpass}';"
-        		echo "mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e \"GRANT ALL ON ${moodledbname}.* TO ${moodledbuser} IDENTIFIED BY '${moodledbpass}';\"" >> /tmp/debug
+        		echo "mysql -h $mysqlIP -u $mysqladminlogin -p${mysqladminpass} -e \"GRANT ALL ON ${moodledbname}.* TO ${moodledbuser} IDENTIFIED BY '${moodledbpass}';\"" >> /tmp/sql_debug.log
 				fi
 
  
